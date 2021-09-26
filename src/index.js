@@ -1,18 +1,16 @@
-const { ApolloServer } = require("apollo-server");
-const typeDefs  = require('./schema');
-const axios = require('axios')
+const express = require('express')
+const {graphqlHTTP} = require('express-graphql')
+const schema = require('./schema')
 
+const app = express();
 
-const server = new ApolloServer({
-  typeDefs,
-  Query: {
-  getItems: () =>{
-    const res = axios.get(`https://digital.provath.org/api/items/`)
-      return response.json
-    }
-  },
-});
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema: schema,
+    graphiql: true
+  }),
+);
 
-server.listen().then(({ url }) => {
-  console.log(`we are ready at ${url}`);
-});
+const PORT = process.env.PORT || 8888;
+app.listen(PORT, () => console.log(`server started on ${PORT}`));

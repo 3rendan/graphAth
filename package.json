@@ -1,7 +1,7 @@
 {
   "name": "graphath",
   "version": "1.0.0",
-  "description": "graphql server for omeka api output",
+  "description": "express graphql server for omeka api output",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index"
@@ -22,8 +22,11 @@
   },
   "homepage": "https://github.com/3rendan/graphAth#readme",
   "dependencies": {
-    "apollo-server": "^3.3.0",
     "axios": "^0.21.4",
+    "concurrently": "^6.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
     "graphql": "^15.6.0"
   }
 }
