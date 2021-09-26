@@ -1,0 +1,29 @@
+{
+  "name": "graphath",
+  "version": "1.0.0",
+  "description": "graphql server for omeka api output",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3rendan/graphAth.git"
+  },
+  "keywords": [
+    "omeka",
+    "graphQL",
+    "React"
+  ],
+  "author": "Brendan Ryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3rendan/graphAth/issues"
+  },
+  "homepage": "https://github.com/3rendan/graphAth#readme",
+  "dependencies": {
+    "apollo-server": "^3.3.0",
+    "axios": "^0.21.4",
+    "graphql": "^15.6.0"
+  }
+}
