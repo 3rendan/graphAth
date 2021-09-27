@@ -12,12 +12,11 @@ const ItemType = new GraphQLObjectType({
   name: 'Item',
   fields: () => ({
     id: { type: GraphQLString },
-    collection: {
-      id: { type: GraphQLString },
-      resource: { type: GraphQLString }
-    },
     tags: {
       type: new GraphQLList(TagType)
+    },
+    element_texts: {
+      type: new GraphQLList(ElementTextsType)
     }
   })
 })
@@ -28,6 +27,12 @@ const TagType = new GraphQLObjectType({
     id: { type: GraphQLString },
     url: { type: GraphQLString },
     name: { type: GraphQLString }
+  })
+})
+const ElementTextsType = new GraphQLObjectType({
+  name: 'Element_texts',
+  fields: () => ({
+    text: { type: GraphQLString }
   })
 })
 // Collection type
@@ -77,13 +82,14 @@ const RootQuery = new GraphQLObjectType({
         return axios
         .get(`https://digital.provath.org/api/tags/${args.id}`)
         .then(res => res.data);
-      },
-    collection: {
-        resolve() {
+      }
+    },
+    element_texts: {
+      type: ElementTextsType,
+      resolve() {
         return axios
-        .get(`https://digital.provath.org/api/items`)
-          .then(res => res.data);
-        },
+        .get(`https://digital.provath.org/api/items/?element_texts`)
+        .then(res => res.data);
       }
     }
   }
