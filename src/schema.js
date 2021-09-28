@@ -13,7 +13,7 @@ const ItemType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLString },
     collection: {
-      type: new GraphQLList(CollectionType),
+      type: CollectionType
     },
     tags: {
       type: new GraphQLList(TagType)
