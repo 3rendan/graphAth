@@ -11,7 +11,7 @@ const { GraphQLObjectType,
 const ItemType = new GraphQLObjectType({
   name: 'Item',
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLInt },
     collection: { type: CollectionType },
     tags: {
       type: new GraphQLList(TagType)
@@ -25,7 +25,7 @@ const ItemType = new GraphQLObjectType({
 const TagType = new GraphQLObjectType({
   name: 'Tag',
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLInt },
     url: { type: GraphQLString },
     name: { type: GraphQLString }
   })
@@ -61,7 +61,26 @@ const ElementType = new GraphQLObjectType({
 const CollectionType = new GraphQLObjectType({
   name: 'Collection',
   fields: () => ({
-    id: { type: GraphQLString }
+    id: { type: GraphQLInt }
+  })
+})
+// Image type
+const ImageType = new GraphQLObjectType({
+  name: 'Image',
+  fields: () => ({
+    id: { type: GraphQLInt },
+    file_urls: { type: GraphQLList(FileUrlsType) },
+    mime_type: { type: GraphQLString }
+  })
+})
+// FileUrls type
+const FileUrlsType = new GraphQLObjectType({
+  name: 'FileUrls',
+  fields: () => ({
+    original: { type: GraphQLString },
+    fullsize: { type: GraphQLString },
+    thumbnail: { type: GraphQLString },
+    square_thumbnail: { type: GraphQLString }
   })
 })
 
@@ -79,7 +98,7 @@ const RootQuery = new GraphQLObjectType({
     item: {
       type: ItemType,
       args: {
-        id: { type: GraphQLString }
+        id: { type: GraphQLInt }
       },
       resolve(parent, args) {
         return axios
@@ -87,30 +106,21 @@ const RootQuery = new GraphQLObjectType({
         .then(res => res.data);
       }
     },
-    tags: {
-      type: new GraphQLList(TagType),
+    images: {
+      type: new GraphQLList(ImageType),
       resolve(parent, args) {
-        return axios.get('https://digital.provath.org/api/tags/')
+        return axios.get('https://digital.provath.org/api/files')
         .then(res => res.data)
       }
     },
-    tag: {
-      type: TagType,
+    image: {
+      type: ImageType,
       args: {
-        id: { type: GraphQLString }
+        id: { type: GraphQLInt }
       },
       resolve(parent, args) {
-        return axios
-        .get(`https://digital.provath.org/api/tags/${args.id}`)
-        .then(res => res.data);
-      }
-    },
-    collection: {
-      type: CollectionType,
-      resolve() {
-        return axios
-        .get(`https://digital.provath.org/api/items/?collection`)
-        .then(res => res.data);
+        return axios.get(`https://digital.provath.org/api/files/${args.id}`)
+        .then(res => res.data)
       }
     }
   }
