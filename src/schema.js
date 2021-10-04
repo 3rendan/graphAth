@@ -68,9 +68,15 @@ const CollectionType = new GraphQLObjectType({
 const ImageType = new GraphQLObjectType({
   name: 'Image',
   fields: () => ({
-    id: { type: GraphQLInt },
-    file_urls: { type: GraphQLList(FileUrlsType) },
+    item: { type: ImageItemType },
+    file_urls: { type: FileUrlsType },
     mime_type: { type: GraphQLString }
+  })
+})
+const ImageItemType = new GraphQLObjectType({
+  name: 'ImageItem',
+  fields: () => ({
+    id: { type: GraphQLInt }
   })
 })
 // FileUrls type
@@ -116,10 +122,10 @@ const RootQuery = new GraphQLObjectType({
     image: {
       type: ImageType,
       args: {
-        id: { type: GraphQLInt }
+        item: { type: GraphQLInt }
       },
       resolve(parent, args) {
-        return axios.get(`https://digital.provath.org/api/files/${args.id}`)
+        return axios.get(`https://digital.provath.org/api/files/${args.item }`)
         .then(res => res.data)
       }
     }
