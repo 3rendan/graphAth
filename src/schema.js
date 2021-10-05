@@ -18,7 +18,9 @@ const ItemType = new GraphQLObjectType({
     },
     element_texts: {
       type: new GraphQLList(ElementTextsType)
-    }
+    },
+    image: { type: ImageType }
+
   })
 })
 //  TagType
@@ -121,16 +123,15 @@ const RootQuery = new GraphQLObjectType({
     },
     image: {
       type: ImageType,
-      args: {
-        item: { type: GraphQLInt }
-      },
-      resolve(parent, args) {
-        return axios.get(`https://digital.provath.org/api/files/${args.item }`)
-        .then(res => res.data)
+      images: (parent, args, {images}) =>{
+          console.log('hello')
       }
     }
   }
 })
+
+
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  // query: ImageItemQuery
 })

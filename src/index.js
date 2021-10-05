@@ -1,6 +1,7 @@
 const express = require('express')
 const {graphqlHTTP} = require('express-graphql')
 const schema = require('./schema')
+// const ItemImage = require('../resolvers/ItemImage')
 
 const app = express();
 
