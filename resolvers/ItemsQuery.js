@@ -1,26 +1,18 @@
 const axios = require('axios')
-const { GraphQLObjectType,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLBoolean,
-  GraphQLList,
-  GraphQLSchema
- } = require('graphql')
+const schema = require('../src/schema')
 
-const ItemsQuery = new GraphQLObjectType({
-  name: 'ItemsQueryType',
-  fields: {
+const ItemsQuery = {
     items: {
-      type: new GraphQLList(ItemType),
+      type: [Item],
       resolve(parent, args) {
         return axios.get('https://digital.provath.org/api/items')
         .then(res => res.data)
       }
     },
     item: {
-      type: ItemType,
+      type: Item,
       args: {
-        id: { type: GraphQLInt }
+        id: Int
       },
       resolve(parent, args) {
         return axios
@@ -29,16 +21,16 @@ const ItemsQuery = new GraphQLObjectType({
       }
     },
     images: {
-      type: new GraphQLList(ImageType),
+      type: [Image],
       resolve(parent, args) {
         return axios.get('https://digital.provath.org/api/files')
         .then(res => res.data)
       }
     },
     image: {
-      type: ImageType,
+      type: Image,
       args: {
-        item: { type: GraphQLInt }
+        item: Int
       },
       resolve(parent, args) {
         return axios.get(`https://digital.provath.org/api/files/${args.item }`)
