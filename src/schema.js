@@ -6,10 +6,14 @@ const { GraphQLObjectType,
   GraphQLList,
   GraphQLSchema
  } = require('graphql');
-const filterById = (eArr, argsId) =>{
-  const result = eArr.filter(e => e.id === argsId)
-  console.log(result)
-}
+// const filterById = (allImagesArr, argsId) =>{
+//   const eArr = allImagesArr.map(e => {
+//     return e
+//   })
+//   eArr.map(eel =>{
+//     console.log(eel)
+//   })
+// }
 // ItemTYPE
 const ItemType = new GraphQLObjectType({
   name: 'Item',
@@ -128,8 +132,8 @@ const RootQuery = new GraphQLObjectType({
       type: ImageType,
       args: { id: { type: GraphQLInt }},
       resolve(parent, args){
-        return axios.get('https://digital.provath.org/api/files')
-        .then(res => filterById(res.data, args.id))
+        return axios.get(`https://digital.provath.org/api/files/${args.id}`)
+        .then(res => res.data)
       }
     }
   }
