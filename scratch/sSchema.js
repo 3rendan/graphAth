@@ -1,41 +1,47 @@
-const { gql } = require('apollo-server');
+const { buildSchema } = require('graphql')
 
-
-const typeDefs = gql`
-  type Query {
-    getItems: [Item!]!
+const schema = buildSchema(`
+  type Item = {
+    id: Int,
+    collection: Collection,
+    tags: Tag,
+    element_texts: [ElementTexts]
   }
-  type Tags {
-    id: String
-    url: String
+  type Tag {
+    id: Int,
+    url: String,
     name: String
   }
-  type Item {
-    id: String
-    item_type: {
-        id: String
-        name: String
-    }
-    collection: {
-        id: String
-        resource: String
-    }
-    owner: {
-        id: 1
-        resource: users
-    }
-    files: {
-        count: 1
-        resource: files
-    }
-    tags: [
-        {
-            id: String
-            url: String
-            name: String
-            resource: String
-        }
-    ]
+  type ElementTexts {
+    text: String,
+    element_set: ElementSet,
+    element: ElementType
   }
-`;
-module.exports = typeDefs;
+  type ElementSet {
+    id: Int,
+    url: String,
+    name: String,
+  }
+  type ElementType {
+    id: Int,
+    url: String,
+    name: String
+  }
+  type Collection {
+    id: Int
+  }
+  type Image {
+    item: ItemId,
+    file_urls: FileUrls,
+    mime_type: String
+  }
+  type ItemId {
+    id: Int
+  }
+  type FileUrls {
+    original: String,
+    fullsize: String,
+    thumbnail: String,
+    square_thumbnail: String
+  }
+`)

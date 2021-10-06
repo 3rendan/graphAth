@@ -123,8 +123,9 @@ const RootQuery = new GraphQLObjectType({
     },
     image: {
       type: ImageType,
-      images: (parent, args, {images}) =>{
-          console.log('hello')
+      resolve(parent, args, {images}) {
+        return axios.get('https://digital.provath.org/api/files')
+        .then(res => console.log('hello'))
       }
     }
   }
