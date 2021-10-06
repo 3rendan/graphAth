@@ -8,14 +8,12 @@ const { GraphQLObjectType,
  } = require('graphql');
 const schema = require('../src/schema')
 
-
-
-const ImageItem = new GraphQLObjectType({
-  name: 'ImageItemType',
+const ItemImage = new GraphQLObjectType({
+  name: 'ItemImageQuery',
   fields: {
-    urls: {
-      type: new GraphQLList(FileUrlsType),
-      resolve(parent, args) {
+    image: {
+      type: ImageType,
+      resolve(parent, args, {images}) {
         return axios.get('https://digital.provath.org/api/files')
         .then(res => res.data)
       }
