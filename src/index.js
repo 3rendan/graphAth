@@ -1,17 +1,15 @@
 const express = require('express')
-const {graphqlHTTP} = require('express-graphql')
-const schema = require('./schema')
-// const ItemImage = require('../resolvers/ItemImage')
+const { ApolloServer } = require('apollo-server-express')
+const typeDefs = require('./schema')
+// const { resolvers } = require('../resolvers/RootQuery.js')
+const axios = require('axios')
+
+const server = new ApolloServer({ typeDefs, resolvers });
 
 const app = express();
 
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true
-  }),
-);
+server.applyMiddleware({ app });
+
 
 const PORT = process.env.PORT || 8888;
 app.listen(PORT, () => console.log(`server started on ${PORT}`));
