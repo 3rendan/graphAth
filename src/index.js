@@ -1,7 +1,7 @@
 const express = require('express')
 const { ApolloServer } = require('apollo-server-express')
-const typeDefs = require('./schema')
-// const { resolvers } = require('../resolvers/RootQuery.js')
+const { typeDefs } = require('./Schema/TypeDefs')
+const { resolvers } = require('./Schema/Resolvers')
 const axios = require('axios')
 
 const server = new ApolloServer({ typeDefs, resolvers });

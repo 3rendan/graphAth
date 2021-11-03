@@ -1,7 +1,8 @@
 const { gql } = require('apollo-server-express');
+const axios = require('axios')
 
 const typeDefs = gql`
-  type Item = {
+  type Item {
     id: Int
     collection: Collection
     tags: Tag
@@ -44,8 +45,10 @@ const typeDefs = gql`
     thumbnail: String
     square_thumbnail: String
   }
+  # QUERIES
   type Query {
     items: [Item]
+    item(id: Int): Item
   }
 `;
-module.exports = typeDefs
+module.exports = {typeDefs}
