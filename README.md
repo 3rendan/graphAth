@@ -8,7 +8,7 @@
 <h3 align="center">GraphAth</h3>
 
   <p align="center">
-    A graphQL express server to parse the RESTful API served by the digital art repository for the Providence Athenaeum managed with an Omeka CMS
+    A GraphQL express server to parse the RESTful API served by the digital art repository for the Providence Athenaeum managed with an Omeka CMS
     <br />
     <a href="https://github.com/3rendan/GraphAth"><strong>Explore the docs »</strong></a>
     <br />
@@ -115,7 +115,7 @@ GraphQL screenshot
 <!-- ROADMAP -->
 ## Roadmap
 
-- [] Feature 1
+- Querying the endpoint and pairing items with images based upon item id.
 - [] Feature 2
 - [] Feature 3
     - [] Nested Feature
@@ -156,37 +156,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - brendan.ryan@pm.me@pm.me.com
+Brendan Ryan - brendan.ryan@pm.me@pm.me.com
 
 Project Link: [https://github.com/3rendan/GraphAth](https://github.com/3rendan/GraphAth)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/3rendan/GraphAth.svg?style=for-the-badge
-[contributors-url]: https://github.com/3rendan/GraphAth/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/3rendan/GraphAth.svg?style=for-the-badge
-[forks-url]: https://github.com/3rendan/GraphAth/network/members
-[stars-shield]: https://img.shields.io/github/stars/3rendan/GraphAth.svg?style=for-the-badge
-[stars-url]: https://github.com/3rendan/GraphAth/stargazers
-[issues-shield]: https://img.shields.io/github/issues/3rendan/GraphAth.svg?style=for-the-badge
-[issues-url]: https://github.com/3rendan/GraphAth/issues
-[license-shield]: https://img.shields.io/github/license/3rendan/GraphAth.svg?style=for-the-badge
-[license-url]: https://github.com/3rendan/GraphAth/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/brendan-r-ryan
-[product-screenshot]: images/screenshot.png
