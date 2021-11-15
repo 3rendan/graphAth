@@ -48,7 +48,10 @@ const typeDefs = gql`
   # QUERIES
   type Query {
     items: [Item]
+    images: [Image]
     item(id: Int): Item
+    tag(id: Int): Tag
+    image(id: Int): Image
   }
 `;
 module.exports = {typeDefs}
