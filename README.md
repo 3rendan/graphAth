@@ -10,14 +10,6 @@
   <p align="center">
     A GraphQL express server to parse the RESTful API served by the digital art repository for the Providence Athenaeum managed with an Omeka CMS
     <br />
-    <a href="https://github.com/3rendan/GraphAth"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/3rendan/GraphAth">View Demo</a>
-    ·
-    <a href="https://github.com/3rendan/GraphAth/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/3rendan/GraphAth/issues">Request Feature</a>
   </p>
 </div>
 
