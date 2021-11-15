@@ -41,19 +41,6 @@
   </ol>
 </details>
 
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `3rendan`, `GraphAth`, `twitter_handle`, `brendan-r-ryan`, `brendan.ryan@pm.me`, `pm.me`, `GraphAth`, `A graphQL express server to parse the RESTful API served by the digital art repository for the Providence Athenaeum managed with an Omeka CMS`
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 ### Built With
 
 * [React.js](https://reactjs.org/)
@@ -151,3 +138,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Brendan Ryan - brendan.ryan@pm.me@pm.me.com
 
 Project Link: [https://github.com/3rendan/GraphAth](https://github.com/3rendan/GraphAth)
+
+## About The Project
+
+[![GraphAth][product-screenshot]](https://example.com)
+
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `3rendan`, `GraphAth`, `twitter_handle`, `brendan-r-ryan`, `brendan.ryan@pm.me`, `pm.me`, `GraphAth`, `A graphQL express server to parse the RESTful API served by the digital art repository for the Providence Athenaeum managed with an Omeka CMS`
